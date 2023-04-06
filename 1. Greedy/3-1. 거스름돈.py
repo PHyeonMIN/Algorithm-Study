@@ -12,7 +12,6 @@ for coin in coin_types:
     n %= coin
 
 print(count)
-print(11111)
 
 # 시간 복잡도 O(K)
 # : 동전의 총 종류에만 영향을 받는다.

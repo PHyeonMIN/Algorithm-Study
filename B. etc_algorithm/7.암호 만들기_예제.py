@@ -15,5 +15,5 @@ for password in combinations(array, l):
         if i in vowels:
             count += 1
     # 최소 1개의 모음과 최소 2개의 자음이 있는 경우 출력
-    if count >= 1 and count <= 1 - 2:
+    if count >= 1 and count <= l - 2:
         print(''.join(password))

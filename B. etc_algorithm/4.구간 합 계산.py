@@ -13,3 +13,11 @@ for i in data:
 left = 3
 right = 4
 print(prefix_sum[right] - prefix_sum[left - 1])
+
+def prefix_sum_fun(data, left, right):
+    sum_value = 0
+    prefix_sum_list = [0]
+    for i in data:
+        sum_value += i
+        prefix_sum_list.append(sum_value)
+    return prefix_sum_list[right] - prefix_sum_list[left - 1]

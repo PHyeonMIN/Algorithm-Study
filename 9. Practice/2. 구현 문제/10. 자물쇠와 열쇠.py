@@ -18,8 +18,8 @@ def check(new_lock):
     return True
 
 def solution(key, lock):
-    n = len(lock)
-    m = len(key)
+    n = len(lock)   # 자물쇠의 크기
+    m = len(key)    # 열쇠의 크기
     # 자물쇠의 크기를 기존의 3배로 변환
     new_lock = [[0] * (n * 3) for _ in range(n * 3)]
     # 새로운 자물쇠의 중앙 부분에 기존의 자물쇠 넣기
@@ -28,7 +28,7 @@ def solution(key, lock):
             new_lock[i + n][j + n] = lock[i][j]
 
     # 4가지 방향에 대해서 확인
-    for rotation in range(4):
+    for rotation in range(4):   # 0 1 2 3
         key = rotate_a_matrix_by_90_degree(key) # 열쇠 회전
         for x in range(n * 2):
             for y in range(n * 2):

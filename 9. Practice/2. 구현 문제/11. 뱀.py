@@ -1,5 +1,5 @@
-n = int(input())
-k = int(input())
+n = int(input())    # 보드의 크기
+k = int(input())    # 사과의 갯수
 data = [[0] * (n + 1) for _ in range(n+1)]  # 맵 정보
 info = []   # 방향 회전 정보
 
@@ -11,7 +11,7 @@ for _ in range(k):
 # 방향 회전 정보 입력
 l = int(input())
 for _ in range(l):
-    x, c = input().split()
+    x, c = input().split()  # 초, 방향
     info.append((int(x), c))
 
 # 처음에는 오른쪽을 보고 있으므로(동, 남, 서, 북)
@@ -33,8 +33,8 @@ def simulate():
     index = 0       # 다음에 회전할 정보
     q = [(x, y)]     # 뱀이 차지하고 있는 위치 정보(꼬리가 앞쪽)
     while True:
-        nx = x + dx[direction]
-        ny = y + dy[direction]
+        nx = x + dx[direction]  # 현재 뱀의 위치
+        ny = y + dy[direction]  # 현재 뱀의 위치
         # 맵 범위 안에 있고, 뱀의 몸통이 없는 위치라면
         if 1 <= nx and nx <= n and 1 <= ny and ny <= n and data[nx][ny] != 2:
             # 사과가 없다면 이동 후에 꼬리 제거
@@ -53,7 +53,7 @@ def simulate():
             break
         x, y = nx, ny   # 다음 위치로 머리를 이동
         time += 1
-        if index < 1 and time == info[index][0]:    # 회전할 시간인 경우 회전
+        if index < l and time == info[index][0]:    # 회전할 시간인 경우 회전
             direction = turn(direction, info[index][1])
             index += 1
 

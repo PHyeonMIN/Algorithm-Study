@@ -1,5 +1,8 @@
 from itertools import permutations
 
+# n: 원의 크기
+# weak : 점검 위치(방문해야할 곳)
+# dist : 친구들 움직이는 거리 리스트
 def solution(n, weak, dist):
     # 길이를 2배로 늘려서 '원형'을 일자 형태로 변형
     length = len(weak)
@@ -15,7 +18,7 @@ def solution(n, weak, dist):
             position = weak[start] + friends[count - 1]
             # 시작점부터 모든 취약 지점을 확인
             for index in range(start, start + length):
-                # 점검할 수 있ㄴ는 위치를 벗어나는 경우
+                # 점검할 수 있는 위치를 벗어나는 경우
                 if position < weak[index]:
                     count += 1  # 새로운 친구를 투입
                     if count > len(dist):   # 더 투입이 불가능하다면 종료

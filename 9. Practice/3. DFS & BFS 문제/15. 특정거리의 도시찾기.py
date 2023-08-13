@@ -17,10 +17,12 @@ distance[x] = 0 # 출발 도시까지의 거리는 0으로 설정
 q = deque([x])
 while q:
     now = q.popleft()
+
     # 현재 도시에서 이동할 수 있는 모든 도시를 확인
     for next_node in graph[now]:
         # 아직 방문하지 않은 도시라면
         if distance[next_node] == -1:
+
             # 최단 거리 갱신
             distance[next_node] = distance[now] + 1
             q.append(next_node)

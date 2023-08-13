@@ -1,6 +1,6 @@
 from itertools import combinations
 
-n, m = map(int, input().split())
+n, m = map(int, input().split())    # 크기, 최대 치킨집 수
 chicken, house = [], []
 
 for r in range(n):

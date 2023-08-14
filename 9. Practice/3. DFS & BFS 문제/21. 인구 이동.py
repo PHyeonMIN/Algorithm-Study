@@ -16,8 +16,8 @@ result = 0
 # 특정 위치에서 출발하여 모든 연합을 체크한 뒤에 데이터 갱신
 def process(x, y, index):
     # (x, y)의 위치와 연결된 나라(연합) 정보를 담는 리스트
-    union = []
-    union.append((x, y))
+    united = []
+    united.append((x, y))
     # 너비 우선 탐색(BFS)을 위한 큐 자료구조 정의
     q = deque()
     q.append((x, y))
@@ -40,9 +40,9 @@ def process(x, y, index):
                     union[nx][ny] = index
                     summary += graph[nx][ny]
                     count += 1
-                    union.append((nx, ny))
+                    united.append((nx, ny))
     # 연합 국가끼리 인구를 분배
-    for i, j in union:
+    for i, j in united:
         graph[i][j] = summary // count
     return count
 

@@ -16,6 +16,7 @@ def virus(x, y):
     for i in range(4):
         nx = x + dx[i]
         ny = y + dy[i]
+
         # 상, 하, 좌, 우 중에서 바이러스가 퍼질 수 있는 경우
         if nx >= 0 and nx < n and ny >= 0 and ny < m:
             if temp[nx][ny] == 0:
@@ -35,6 +36,7 @@ def get_score():
 # 깊이 우선 탐색(DFS)을 이용해 울타리를 설치하면서, 매번 안전 영역의 크기 계산
 def dfs(count):
     global result
+
     # 울타리가 3개 설치된 경우
     if count == 3:
         for i in range(n):
@@ -48,6 +50,7 @@ def dfs(count):
         # 안전 영역의 최댓값 계산
         result = max(result, get_score())
         return
+
     # 빈 공간에 울타리 설치
     for i in range(n):
         for j in range(m):

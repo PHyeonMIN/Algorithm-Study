@@ -28,9 +28,11 @@ def solution(p):
     index = balanced_index(p)
     u = p[:index + 1]
     v = p[index + 1:]
+
     # "올바른 괄호 문자열"이면, v에 대해 함수를 수행한 결과를 붙여 반환
     if check_proper(u):
         answer = u + solution(v)
+
     # "올바른 괄호 문자열"이 아니라면 아래의 과정을 수행
     else:
         answer = '('

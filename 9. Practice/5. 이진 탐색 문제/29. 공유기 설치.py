@@ -15,11 +15,13 @@ while(start <= end):
     mid = (start + end) // 2    # mid는 가장 인접한 두 공유기 사이의 거리(gap)를 의미
     value = array[0]
     count = 1
+
     # 현재의 mid 값을 이용해 공유기를 설치
     for i in range(1, n):   # 앞에서부터 차근차근 설치
         if array[i] >= value + mid:
             value = array[i]
             count += 1
+
     if count >= c:  # C개 이상의 공유기를 설치할 수 있는 경우, 거리를 증가
         start = mid + 1
         result = mid    # 최적의 결과를 저장

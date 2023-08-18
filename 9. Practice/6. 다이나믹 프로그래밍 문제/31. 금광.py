@@ -19,13 +19,16 @@ for tc in range(int(input())):
                 left_up = 0
             else:
                 left_up = dp[i - 1][j - 1]
+
             # 왼쪽 아래에서 오는 경우
             if i == n - 1:
                 left_down = 0
             else:
                 left_down = dp[i + 1][j - 1]
+
             # 왼쪽에서 오는 경우
             left = dp[i][j - 1]
+
             dp[i][j] = dp[i][j] + max(left_up, left_down, left)
 
     result = 0

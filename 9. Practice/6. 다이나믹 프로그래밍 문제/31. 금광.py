@@ -28,7 +28,6 @@ for tc in range(int(input())):
 
             # 왼쪽에서 오는 경우
             left = dp[i][j - 1]
-
             dp[i][j] = dp[i][j] + max(left_up, left_down, left)
 
     result = 0

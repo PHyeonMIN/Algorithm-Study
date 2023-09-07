@@ -1,18 +1,11 @@
 import sys
 from collections import deque
 
-def input():
-    return sys.stdin.readline().rstrip()
+n = int(input())
+data = deque([i for i in range(1, n + 1)])
 
-queue = deque()
-N = int(input())
-for i in range(1,N+1):
-    queue.append(i)
+while len(data) > 1:
+    data.popleft()
+    data.rotate(-1)
 
-while True:
-    a = queue.popleft()
-    if not queue:
-        print(a)
-        break
-    b = queue.popleft()
-    queue.append(b)
+print(data.popleft())

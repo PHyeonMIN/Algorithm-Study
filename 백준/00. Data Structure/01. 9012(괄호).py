@@ -3,18 +3,23 @@ import sys
 def input():
     return sys.stdin.readline().rstrip()
 
-N = int(input())
-result = ""
-
-for i in range(N):
-    testcase = input()
-    cnt = 0
-    for c in testcase:
-        cnt += 1 if c == '(' else -1
-        if cnt < 0:
-            result += "NO\n"
-            break
+def solution(s):
+    right_cnt = 0
+    for i in s:
+        if i == ")":
+            right_cnt -= 1
+            if right_cnt < 0:
+                return False
         else:
-            result += "YES\n" if cnt == 0 else "NO\n"
+            right_cnt += 1
+    return right_cnt == 0
 
-print(result)
+
+n = int(input())
+
+for _ in range(n):
+    s = input()
+    if solution(s):
+        print("YES")
+    else:
+        print("NO")

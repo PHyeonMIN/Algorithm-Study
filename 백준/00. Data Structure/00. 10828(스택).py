@@ -1,35 +1,32 @@
-# http://boj.kr/ab416f0794fc41cabc3d9ed46db29f60/
-
 import sys
 
 def input():
     return sys.stdin.readline().rstrip()
 
-N = int(input())
+n = int(input())
 
-stack = []
+result = []
+for _ in range(n):
+    s = input()
+    length = len(result)
 
-for i in range(N):
-    cmd = input().split()
-    X = 0
-    if len(cmd) == 2:
-        X = cmd[1]
-    cmd = cmd[0]
-
-    if cmd == "push":
-        stack.append(X)
-    elif cmd == "pop":
-        if len(stack) == 0:
-            print(-1)
+    if "push" in s:
+        command, num = s.split(' ')
+        result.append(num)
+    elif "pop" in s:
+        if length > 0:
+            print(result.pop())
         else:
-            print(stack[-1])
-            stack.pop(-1)
-    elif cmd == "size":
-        print(len(stack))
-    elif cmd == "empty":
-        print(0 if len(stack) else 1)
-    elif cmd == "top":
-        if len(stack) == 0:
             print(-1)
+    elif "size" in s:
+        print(len(result))
+    elif "empty" in s:
+        if length > 0:
+            print(0)
         else:
-            print(stack[-1])
+            print(1)
+    elif "top" in s:
+        if length > 0:
+            print(result[-1])
+        else:
+            print(-1)

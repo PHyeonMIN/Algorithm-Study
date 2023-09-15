@@ -1,4 +1,4 @@
-# 이미 푼 문제
+# 이미 푼 문제 - deque & rotate 관련 문제
 
 import sys
 from collections import deque

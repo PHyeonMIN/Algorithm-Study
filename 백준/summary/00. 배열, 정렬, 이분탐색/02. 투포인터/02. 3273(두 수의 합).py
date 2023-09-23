@@ -7,6 +7,7 @@ def input():
 n = int(input())
 data = list(map(int,input().split()))
 data.sort()
+
 x = int(input())
 
 left, right = 0, n - 1

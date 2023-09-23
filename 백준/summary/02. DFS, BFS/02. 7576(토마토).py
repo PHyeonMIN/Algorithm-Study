@@ -32,16 +32,16 @@ def bfs():
 
 bfs()
 
-exit = 0
+_exit = 0
 result = 0
 for i in range(n):
     for j in range(m):
         if graph[i][j] == 0:
-            exit = -1
+            _exit = -1
             break
         result = max(result, graph[i][j])
 
-    if exit == -1:
+    if _exit == -1:
         break
 
-print(-1 if exit == -1 else (result - 1))
+print(-1 if _exit == -1 else (result - 1))

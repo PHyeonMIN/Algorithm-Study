@@ -12,7 +12,7 @@ for _ in range(n):
 data.sort()
 
 left, right = 0, 0
-result = 1e10
+result = 1e9
 
 while left <= right and right < n:
     interval = data[right] - data[left]

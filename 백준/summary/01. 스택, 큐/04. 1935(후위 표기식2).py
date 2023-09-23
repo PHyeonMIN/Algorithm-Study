@@ -1,4 +1,5 @@
 # 스택을 잘 활용할 것!
+# ord('A') 는 65이다.
 
 import sys
 def input():

@@ -1,6 +1,7 @@
 # *****
-# 이거 dp + bfs 로 풀어야함
 # 이건 진짜 모르겠음 - 무조건 다시 풀어보기!!!!!
+# 이거 dp + bfs 로 풀어야함
+
 import sys
 from collections import deque
 

@@ -13,6 +13,7 @@ n = int(input())
 data1 = list(map(int,input().split()))
 m = int(input())
 data2 = list(map(int,input().split()))
+
 data1.sort()
 
 for i in data2:

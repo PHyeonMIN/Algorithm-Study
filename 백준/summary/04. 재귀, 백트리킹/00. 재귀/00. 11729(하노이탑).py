@@ -1,6 +1,6 @@
 # *****
-# 모르겠음 다시 볼 것!
-# 이것좀 어렵;;
+# https://www.youtube.com/watch?v=FYCGV6F1NuY&t=407s
+# 동작방식 잘 볼것!
 
 n = int(input())
 

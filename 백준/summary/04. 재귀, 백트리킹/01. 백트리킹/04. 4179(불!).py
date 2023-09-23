@@ -19,7 +19,7 @@ for i in range(n):
 for i in range(n):
     for j in range(m):
         if graph[i][j] == 'F':
-            q.append((-1, i, j))    # -1은 불이다.
+            q.append((-1, i, j))    # -1은 불이다 , x, y
 
 dx = [0, 0, 1, -1]
 dy = [1, -1, 0, 0]

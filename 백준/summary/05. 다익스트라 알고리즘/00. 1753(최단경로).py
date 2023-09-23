@@ -16,7 +16,7 @@ distance = [INF] * (v + 1)
 
 for _ in range(e):
     a, b, c = map(int,input().split())
-    graph[a].append((b,c))
+    graph[a].append((b,c))  # 시작노드, 끝노드, 거리
 
 def dijkstra(start):
     q = []

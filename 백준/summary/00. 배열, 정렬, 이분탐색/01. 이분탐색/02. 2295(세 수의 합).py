@@ -2,6 +2,8 @@
 # 문제를 더 쉽게 접근할 수 있는 방법을 생각해보자
 # 처음에는 combinations로 조합을 구해서 계산하니 메모리 초과가 떳다. 더 간단한 방법으로 접근해보자.
 
+# x + y + z = k 일 때, x + y = k - z 임을 이용해서 푼다.
+
 import sys
 
 def input():
@@ -33,7 +35,7 @@ for i in range(len(data)):
 data_sum = list(data_sum)
 data_sum.sort()
 
-result = -1e10
+result = -1e9
 for i in range(len(data)):
     for j in range(i, len(data)):
         a = data[j] - data[i]

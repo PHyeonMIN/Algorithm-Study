@@ -46,5 +46,5 @@ for _  in range(m):
             heappop(min_heap)
 
         in_list[P] = True
-        heappush(max_heap,[-L,-P])
-        heappush(min_heap,[L,P])
+        heappush(max_heap, (-L,-P))
+        heappush(min_heap, (L,P))

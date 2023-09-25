@@ -76,3 +76,9 @@ def bfs(graph, start, visited):
             if not visited[i]:
                 queue.append(i)
                 visited[i] = True
+
+
+from collections import defaultdict
+# int 함수를 사용하여 기본값을 0으로 설정
+num_dict = defaultdict(bool)
+print(num_dict[1])

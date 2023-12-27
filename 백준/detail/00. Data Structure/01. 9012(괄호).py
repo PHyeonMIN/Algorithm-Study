@@ -19,7 +19,4 @@ n = int(input())
 
 for _ in range(n):
     s = input()
-    if solution(s):
-        print("YES")
-    else:
-        print("NO")
+    print("YES") if solution(s) else print("NO")

@@ -14,19 +14,10 @@ for _ in range(n):
         command, num = s.split(' ')
         result.append(num)
     elif "pop" in s:
-        if length > 0:
-            print(result.pop())
-        else:
-            print(-1)
+        print(result.pop()) if length > 0 else print(-1)
     elif "size" in s:
         print(len(result))
     elif "empty" in s:
-        if length > 0:
-            print(0)
-        else:
-            print(1)
+        print(0) if length > 0 else print(1)
     elif "top" in s:
-        if length > 0:
-            print(result[-1])
-        else:
-            print(-1)
+        print(result[-1]) if length > 0 else print(-1)

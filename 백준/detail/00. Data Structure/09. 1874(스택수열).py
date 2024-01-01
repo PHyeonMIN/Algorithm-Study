@@ -1,23 +1,26 @@
+# 스택 + 규칙파악
+
 n = int(input())
 
-stack = [0]     # 이걸 그냥 숫자로 해도 괜찮음.
-result = list()
-ans = []
+stack = [0]         # 스택이 잘 쌓이나 확인 용도
+chk_list = list()   # 체크용
+ans = []            # 결과
 for _ in range(n):
-    a = int(input())
+    num = int(input())
 
-    if a > stack[-1]:
-        for i in range(stack[-1] + 1, a + 1):
+    if num > stack[-1]:
+        for i in range(stack[-1] + 1, num + 1):
             ans.append("+")
             stack.append(i)
-            result.append(i)
+            chk_list.append(i)
 
-    last = result.pop()
-    if a == last:
+    last = chk_list.pop()
+    if num == last:
         ans.append("-")
     else:
         ans = []
         break
+
 if len(ans) == 0:
     print("NO")
 else:

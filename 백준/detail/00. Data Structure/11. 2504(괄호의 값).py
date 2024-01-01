@@ -1,3 +1,4 @@
+# 스택과 곱셈의 분배법칙을 이용한 문제
 
 bracket = list(input())
 
@@ -24,13 +25,12 @@ for i in range(len(bracket)):
         stack.pop()
         tmp //= 2
 
-    else:
+    elif bracket[i] == "]":
         if not stack or stack[-1] == "(":
             answer = 0
             break
         if bracket[i-1] == "[":
             answer += tmp
-
         stack.pop()
         tmp //= 3
 

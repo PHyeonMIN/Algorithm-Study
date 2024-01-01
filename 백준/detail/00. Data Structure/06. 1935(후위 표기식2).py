@@ -1,3 +1,5 @@
+# 스택 문제
+
 import sys
 def input():
     return sys.stdin.readline().rstrip()
@@ -12,8 +14,8 @@ for _ in range(n):
 stack = []
 result = 0
 for i in s:
-    if i.isalpha():
-        stack.append(data[ord(i) - 65])
+    if i.isalpha():                         # isalpha()
+        stack.append(data[ord(i) - 65])     # ord(A) = 65
     else:
         b = stack.pop()
         a = stack.pop()
@@ -25,4 +27,4 @@ for i in s:
             stack.append(a * b)
         elif i == '/':
             stack.append(a / b)
-print(format(stack[0],'.2f'))
+print(format(stack[0],'.2f'))               # format( number, '.2f' )

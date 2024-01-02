@@ -1,3 +1,6 @@
+# 최소힙 문제
+# 실버1
+
 import sys, heapq
 
 def input():
@@ -8,14 +11,8 @@ n = int(input())
 heap = []
 for _ in range(n):
     num = int(input())
+
     if num == 0:
-        if len(heap) == 0:
-            print(0)
-        else:
-            val, sign = heapq.heappop(heap)
-            if sign == 0:
-                print(-val)
-            else:
-                print(val)
+        print(0) if len(heap) == 0 else print(heapq.heappop(heap)[1])
     else:
-        heapq.heappush(heap, (abs(num), 1 if num > 0 else 0))
+        heapq.heappush(heap, (abs(num), num))

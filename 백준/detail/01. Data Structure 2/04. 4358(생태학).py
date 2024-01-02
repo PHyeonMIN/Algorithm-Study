@@ -1,22 +1,26 @@
+# 자료형 딕셔너리
+# 실버2
+
 import sys
 def input():
     return sys.stdin.readline().rstrip()
 
 result = {}
-cnt = 0
-while True:
+total_cnt = 0
+
+while 1:
     s = input()
     if s == '':
         break
+
     if s in result:
         result[s] += 1
     else:
-        result[s] =  1
-    cnt += 1
+        result[s] = 1
 
-sorted_result = dict(sorted(result.items()))
-for key, val in sorted_result.items():
-    print(key, end = ' ')
-    print(format((val / cnt) * 100, '.4f'))
+    total_cnt += 1
 
-# 딕셔너리 사용 미숙함.
+sorted_keys = list(result.keys())   # result.keys() 는 딕셔너리의 키들을 반환하는 "dictionary view" 객체
+sorted_keys.sort()
+for key in sorted_keys:
+    print("%s %.4f" %(key, result[key] / total_cnt * 100))

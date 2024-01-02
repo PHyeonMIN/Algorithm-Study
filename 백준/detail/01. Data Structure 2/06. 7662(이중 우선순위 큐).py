@@ -1,45 +1,50 @@
-# *****
+# 최대힙 + 최소힙 + 방문여부
+# 골드4
 # pypy3 로 통과함.
 
-import heapq
+import sys, heapq
+def input():
+    return sys.stdin.readline().rstrip()
 
 t = int(input())
 
-for i in range(t):
+for _ in range(t):
     k = int(input())
-    q1, q2 = [], []
-    visited = [False] * k   # 이걸로 빠졌는지 안빠졌는지 체크
+
+    min_heap, max_heap = [], []
+    visited = [False] * k
 
     for j in range(k):
         com, num = input().split()
+        num = int(num)
 
         if com == 'I':
-            heapq.heappush(q1, (int(num), j))   # 최소힙
-            heapq.heappush(q2, (-int(num), j))  # 최대힙
+            heapq.heappush(min_heap, (num, j))                 # 최소힙
+            heapq.heappush(max_heap, (-num, j))                # 최대힙
             visited[j] = True
 
         else:
-            if num == '1':
-                while q2 and not visited[q2[0][1]]: # 0번째는 pop할 수가 옴.
-                    heapq.heappop(q2)
-                if q2:
-                    visited[q2[0][1]] = False
-                    heapq.heappop(q2)
+            if num == 1:
+                while max_heap and not visited[max_heap[0][1]]:     # 이미 방문했다면 pop
+                    heapq.heappop(max_heap)
+                if max_heap:
+                    val, key = heapq.heappop(max_heap)
+                    visited[key] = False
+
             else:
-                while q1 and not visited[q1[0][1]]:
-                    heapq.heappop(q1)
-                if q1:
-                    visited[q1[0][1]] = False
-                    heapq.heappop(q1)
+                while min_heap and not visited[min_heap[0][1]]:
+                    heapq.heappop(min_heap)
+                if min_heap:
+                    val, key = heapq.heappop(min_heap)
+                    visited[key] = False
 
-    while q1 and not visited[q1[0][1]]:
-        heapq.heappop(q1)
-    while q2 and not visited[q2[0][1]]:
-        heapq.heappop(q2)
 
-    if not q1 or not q2:
+    while min_heap and not visited[min_heap[0][1]]:
+        heapq.heappop(min_heap)
+    while max_heap and not visited[max_heap[0][1]]:
+        heapq.heappop(max_heap)
+
+    if not min_heap or not max_heap:
         print("EMPTY")
     else:
-        a = -q2[0][0]
-        b = q1[0][0]
-        print("%d %d" % (a, b))
+        print("%d %d" % (-max_heap[0][0], min_heap[0][0]))

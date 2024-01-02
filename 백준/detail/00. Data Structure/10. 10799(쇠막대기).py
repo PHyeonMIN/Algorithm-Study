@@ -1,4 +1,5 @@
-# 스택 + 규칙 파악 문제
+# 다시풀기 - 스택 + 규칙 파악 문제
+# 실버2
 
 import sys
 
@@ -13,7 +14,7 @@ for i in range(len(bar_list)):
     if bar_list[i] == "(":
         stack.append("(")
     else:
-        if bar_list[i-1] == "(":
+        if bar_list[i - 1] == "(":
             stack.pop()
             result += len(stack)
         else:

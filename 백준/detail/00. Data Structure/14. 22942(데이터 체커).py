@@ -1,24 +1,28 @@
-from itertools import combinations
+# 다시풀기 - 스택 + 원의 시작과 끝이 완성되면 pop - 그냥 ( ) 문제랑 똑같네
+# 골드4
+
 import sys
 
-def input():
-    return sys.stdin.readline().rstrip()
+N = int(sys.stdin.readline())
+circles = []
 
-n = int(input())
-data = []
-for _ in range(n):
-    x, r = map(int,input().split())
-    data.append((x, r))
+for i in range(N):
+    x, r = map(int, sys.stdin.readline().split())
+    circles.append((x-r, i))
+    circles.append((x+r, i))
+circles.sort()
 
-data2 = combinations(data, 2)
-result = True
-for i in data2:
-    a, b = i
-    d = abs(a[0] - b[0])
-    if a[1] + b[1] >= d and d >= abs(a[1] - b[1]):
-        result = False
-        break
-if result:
-    print("YES")
+stk = []
+for c in circles:
+    if stk:
+        if stk[-1][1] == c[1]:
+            stk.pop()
+        else:
+            stk.append(c)
+    else:
+        stk.append(c)
+
+if stk:
+    print('NO')
 else:
-    print("NO")
+    print('YES')

@@ -1,4 +1,4 @@
-# 큐 rotate 문제
+# 다시풀기 - 큐 rotate 문제
 
 import sys
 from collections import deque

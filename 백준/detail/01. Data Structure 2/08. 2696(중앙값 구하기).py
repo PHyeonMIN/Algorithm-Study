@@ -1,5 +1,5 @@
-# 최대힙 + 최소힙
 # 골드2
+# 최대힙 + 최소힙 - 왼쪽 컬렉션(최대힙), 오른쪽 컬렉션(최소힙)을 만들어서 중간값을 구한다고 생각하면 될 듯
 
 import sys, heapq
 def input():
@@ -15,24 +15,25 @@ for _ in range(t):
     for _ in range(cnt + 1):
         data.extend(list(map(int, input().split())))
 
+    # left, right
     max_heap, min_heap = [], []
-    middle = data[0]
-    result = [middle]
+    mid = data[0]
+    result = [mid]
 
     for i in range(1, len(data)):
-        if data[i] > middle:
+        if data[i] > mid:
             heapq.heappush(min_heap, data[i])
         else:
             heapq.heappush(max_heap, (-data[i], data[i]))
 
         if i % 2 == 0:
             if len(max_heap) < len(min_heap):
-                heapq.heappush(max_heap, (-middle, middle))
-                middle = heapq.heappop(min_heap)
+                heapq.heappush(max_heap, (-mid, mid))
+                mid = heapq.heappop(min_heap)
             elif len(max_heap) > len(min_heap):
-                heapq.heappush(min_heap, middle)
-                middle = heapq.heappop(max_heap)[1]
-            result.append(middle)
+                heapq.heappush(min_heap, mid)
+                mid = heapq.heappop(max_heap)[1]
+            result.append(mid)
 
     print(len(result))
     for i in range(len(result)):
